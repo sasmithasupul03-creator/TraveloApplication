@@ -1,0 +1,31 @@
+/* =========================================
+   6. AUTO-HIDE NAVBAR ANIMATION
+========================================= */
+
+/* The invisible container at the top */
+.nav-hover-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15px; /* Only the top 15px is sensitive to mouse */
+  z-index: 9999; /* Stays on top of everything */
+  transition: all 0.1s ease; /* Quick response */
+}
+
+/* When you hover the top area, expand the wrapper to fit the navbar */
+.nav-hover-wrapper:hover {
+  height: auto; 
+}
+
+/* The actual Navbar inside (Hidden by default) */
+.nav-hover-wrapper .navbar {
+  transform: translateY(-100%); /* Moved UP out of view */
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth Slide Down */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Nice shadow */
+}
+
+/* When Wrapper is hovered -> Slide Navbar Down */
+.nav-hover-wrapper:hover .navbar {
+  transform: translateY(0); /* Reset position to normal */
+}
